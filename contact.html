@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>SWD - Contact</title>
+<link rel="stylesheet" type="text/css" href="style.css"/>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script language="javascript">
+    	function validatePhone(){
+      		if (event.keyCode >= 48 && event.keyCode <= 57)
+        		event.returnValue = true;
+      		else
+        		event.returnValue = false;
+    	}
+		
+		function displayResult() {
+			var x=document.getElementById("Phone1").maxLength;
+			alert(x);
+			var x=document.getElementById("Phone2").maxLength;
+			alert(x);
+			var x=document.getElementById("Phone3").maxLength;
+			alert(x);
+		}
+		
+		function Validate(form) {
+			var name = document.forms["form1"]["Name"].value;
+			var subject = document.forms["form1"]["Subject"].value
+			var comment = document.forms["form1"]["Comment"].value
+			var email = document.forms["form1"]["Email"].value;
+			var atpos = email.indexOf("@");
+			var dotpos = email.lastIndexOf(".");
+	
+			if (name==null || name=="" || subject==null || subject=="" || comment==null || comment=="" || email==null || email=="") {
+				alert("Please complete the entire form.");
+				return false;
+			}
+
+			if (atpos<1 || dotpos<atpos+2 || dotpos+2>email.length) {
+				alert("Please enter a valid email address.");
+				return false;
+			}
+		}
+		
+		function alphaOnly(evt) { 
+    		var charCode = (evt.which) ? evt.which : window.event.keyCode;
+ 			if (charCode >= 65 && charCode <=90) { 
+        		return true; 
+    		} 
+    		else { 
+        		var keyChar = String.fromCharCode(charCode); 
+        		var re = /[a-zA-Z ]/ 
+        		return re.test(keyChar); 
+    		}
+		}
+	</script>
+</head>
+
+<body>
+	<div class="header">
+    	<div class="logo">
+        	<h4>Stephanie Walker Design</h4>
+        </div>
+        <div class="search">
+        	<!-- Search Bar Code -->
+            	<a href="http://facebook.com/SWalkerDesign" target="_blank" alt="Facebook"><img src="icons/facebook1.png" /></a>
+                <a href="http://twitter.com/StephReneeW" target="_blank" alt="Twitter"><img src="icons/twitter1.png" /></a>
+                <a href="http://www.linkedin.com/pub/stephanie-walker/50/881/929" target="_blank" alt="LinkedIn"><img src="icons/linkedin1.png" /></a>
+                <a href="http://jabberbox94.deviantart.com/" target="_blank" alt="Deviantart"><img src="icons/deviantart1.png" /></a>
+                <a href="http://www.flickr.com/photos/stephwalker" target="_blank" alt="Flickr"><img src="icons/flickr1.png" /></a>
+        </div>
+    </div>
+    <div class="navigation">
+    	<ul>
+        	<li><a href="index.html" alt="Home">Home</a></li>
+        	<li><a href="news.html" alt="News">News</a></li>
+        	<li><a href="about.html" alt="About Index">About</a></li>
+        	<li><a href="services.html" alt="Service Index">Services</a></li>
+        	<li><a href="portfolio.html" alt="Portfolio">Portfolio</a></li>
+        	<li><a href="contact.html" alt="Contact">Contact</a></li>
+        </ul>
+    </div>
+    <div class="content">
+    	<h1>Contact Me</h1>
+    	<p>If you have any questions, or business inquiries, please feel free to contact me using the form below.</p>
+        <p>Items marked <font color="#0074b7" style="font-weight: bold;">*</font> are required.</p>
+        		<form id="form1" name="form1" method="post" action="form.php" onsubmit="return validateForm(this.form);">
+					<div>
+    					<label><font color="#0074b7" style="font-weight: bold;">*</font> Your Name:</label>
+      					<input type="text" name="Name" id="Name" class="input" placeholder="John Smith" onkeypress="return alphaOnly(event)" />
+      				</div>
+        			<div>
+    					<label><font color="#0074b7" style="font-weight: bold;">*</font> Email Address:</label>
+      					<input type="text" name="Email" id="Email" class="input" placeholder="youremail@example.com" />
+      				</div>
+        			<div>
+      					<label>&nbsp;&nbsp;Phone Number:</label>
+      					(&nbsp;<input type="text" name="Phone1" id="Phone1" class="phone" maxLength="3" placeholder="XXX" onkeypress="validatePhone()" />&nbsp;) 
+      					<input type="text" name="Phone2" id="Phone2" class="phone" maxLength="3" placeholder="XXX" onkeypress="validatePhone()" /> - 
+      					<input type="text" name="Phone3" id="Phone3" class="phone_last" maxLength="4" placeholder="XXXX" onkeypress="validatePhone()" />
+      				</div>
+        			<h3>Message</h3>
+      				<div>
+      					<label><font color="#0074b7" style="font-weight: bold;">*</font> Subject:</label>
+      					<select name="Subject" id="Subject" class="subject">
+            				<option>&nbsp;</option>
+      						<option>Web Design</option>
+      						<option>Print Design</option>
+      						<option>Photography</option>
+      						<option>Other</option>
+      					</select>
+      				</div>
+        			<div>
+    					<label><font color="#0074b7" style="font-weight: bold;">*</font> Comments:</label>
+      					<textarea name="Comment" id="Comment" cols="45" rows="5" class="input" ></textarea>
+      				</div>
+                    <div class="hidden" style="display: none;"><textarea name="EmailBotInfo"></textarea></div>
+        			<div>
+    					<label>&nbsp;</label>
+      					<input type="submit" name="Submit" id="Submit" value="Submit" onclick="return Validate(this.form)" />
+        			</div>
+				</form>
+    </div>
+    <div class="core_holder" style="background-color: #34b4ff;">
+    	<div class="content">
+    		<div class="core">
+        		<h2>Experience</h2>
+            	<p>Experience and knowledge are important. I have been designing and coding for five years and still counting. I have worked with various companies to design and develop unique and effective websites, emails, flyers, logos, postcards, and much more. Every customer wants to know that the designer they are hiring has experience and knowlege of their field.</p>
+        	</div>
+        	<div class="core">
+        		<h2>Quality</h2>
+            	<p>I take pride in my work. I wouldn't want to pay for something I don't like, and I don't want you to feel that way either. I work with you to create a design that suits your needs, making sure that nothing is less than perfect. I want my clients to be happy with my designs and I am devoted to working until I can be certain you're satisified with your purchase.</p>
+        	</div>
+        	<div class="core">
+        		<h2>Affordable</h2>
+            	<p>As a student, building clientel is the most challenging task to tackle. My services provide quality work, at an unbeatable price. Matching quality and affordability is the key to maintaining and gaining happy customers that will return for updates and additonal work, or even refer friends. Being a student, I am glad to negotiate prices with you so that it's a win-win situation in every case.</p>
+        	</div>
+        	<div class="core">
+        		<h2>Exclusive</h2>
+            	<p>Templates are boring and ugly, which is why I build everything from scratch. I make sure that all my designs are unique to you and your business to help you gain customers and reputation. Nobody wants to see the same website over and over.</p>
+        	</div>
+        </div>
+    </div>
+    <div class="core_holder" style="background-color: #eeeeee;">
+    	<div class="sitemap">
+    		<div class="core">
+        		<ul>
+            		<li><a href="http://facebook.com/SWalkerDesign" target="_blank" alt="Facebook">Facebook</a></li>
+                	<li><a href="http://twitter.com/StephReneeW" target="_blank" alt="Twitter">Twitter</a></li>
+                	<li><a href="http://www.linkedin.com/pub/stephanie-walker/50/881/929" target="_blank" alt="LinkedIn">LinkedIn</a></li>
+            	</ul>
+        	</div>
+        	<div class="core">
+        		<ul>
+                	<li><a href="http://jabberbox94.deviantart.com/" target="_blank" alt="Deviantart">Deviantart</a></li>
+                	<li><a href="http://www.flickr.com/photos/stephwalker" target="_blank" alt="Flickr">Flickr</a></li>
+            		<li><a href="index.html" alt="Home">Home</a></li>
+            	</ul>
+        	</div>
+        	<div class="core">
+        		<ul>
+            	    <li><a href="news.html" alt="News">News</a></li>
+                    <li><a href="http://swdblog.tumblr.com" target="_blank" alt="Blog">Blog</a></li>
+         			<li><a href="about.html" alt="About">About</a></li>
+            	</ul>
+        	</div>
+        	<div class="core">
+        		<ul>
+                	<li><a href="resume.html" alt="Resume">Resume</a></li>
+                	<li><a href="services.html" alt="Services">Services</a></li>
+            		<li><a href="portfolio.html" alt="Portfolio">Portfolio</a></li>
+            	</ul>
+        	</div>
+    	</div>
+    </div>
+    <div class="footer">
+    	<p>Copyright &copy; 2013 Stephanie Walker</p>
+    </div>
+    
+    <!-- Canvas Scripting -->
+	<script type="text/javascript">
+		var c=document.getElementById("myCanvas");
+		var ctx=c.getContext("2d");
+		var img=new Image();
+		img.onload = function(){
+			ctx.scale(.37,.37);
+			ctx.drawImage(img,-350,-550);
+		};
+		img.src="images/DSC_0685-2.jpg";
+	</script>
+</body>
+</html>
